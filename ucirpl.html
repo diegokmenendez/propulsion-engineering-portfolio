@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UCI Rocket Project Liquids</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #1C1C1E;
+    color: #FFFFFF;
+    font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  .top {
+    background: #0A1F44;
+  }
+  h1 {
+    margin: 0;
+    padding: 24px 24px;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  h1 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding: 0 24px 32px;
+    font-size: 1.1rem;
+  }
+  .links a {
+    color: #FFFFFF;
+    text-decoration: underline;
+  }
+  .hotfires-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 32px;
+    padding: 0 40px;
+  }
+  .hotfires-head h2 { padding: 32px 0 8px; }
+  .hotfires-head .role-line { padding: 0 0 8px; }
+  h2 {
+    margin: 0;
+    padding: 32px 40px 8px;
+    font-size: clamp(2.25rem, 6vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+  }
+  .overview {
+    padding: 32px 40px 36px;
+    background: #26262A;
+  }
+  .overview .title {
+    text-align: center;
+    margin: 0 0 12px;
+    padding: 0;
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.1;
+  }
+  .overview p {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 52ch;
+    font-size: clamp(1rem, 1.7vw, 1.25rem);
+    line-height: 1.5;
+  }
+  .role-line {
+    margin: 0;
+    padding: 8px 40px 12px;
+    font-size: clamp(1.25rem, 2.6vw, 1.9rem);
+    opacity: 0.8;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 360px);
+    gap: 24px;
+    align-items: center;
+    padding: 12px 40px;
+  }
+  .row h3 {
+    margin: 0;
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.1;
+  }
+  .row .sub {
+    margin: 8px 0 0;
+    font-size: clamp(1.25rem, 2.6vw, 1.9rem);
+    opacity: 0.8;
+  }
+  .row .detail {
+    margin: 12px 0 0;
+    font-size: clamp(1rem, 1.7vw, 1.25rem);
+    line-height: 1.5;
+  }
+  .row .detail-list {
+    margin: 8px 0 0;
+    padding-left: 1.4em;
+    font-size: clamp(1rem, 1.7vw, 1.25rem);
+    line-height: 1.5;
+  }
+  .row .detail-list li { margin-bottom: 6px; }
+  .timeline {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    padding: 16px 40px 8px;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 40px;
+    right: 40px;
+    top: 22px;
+    height: 1px;
+    background: #FFFFFF;
+  }
+  .tl-item {
+    position: relative;
+    padding-top: 22px;
+  }
+  .tl-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #FFFFFF;
+  }
+  .tl-item .date {
+    margin: 0 0 12px;
+    font-size: clamp(1.25rem, 2.4vw, 1.9rem);
+    font-weight: 600;
+    line-height: 1.1;
+  }
+  .video {
+    aspect-ratio: 16 / 9;
+    background: #000000;
+  }
+  .video video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+  }
+  .media img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .media img + img {
+    margin-top: 12px;
+  }
+  .ph {
+    aspect-ratio: 4 / 3;
+    background: #566B96;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+  }
+  .design { padding-bottom: 48px; margin-top: 32px; background: #2A2A2D; }
+  .design .row { padding: 24px 40px; }
+  .design .row > div:first-child { padding-right: 15%; }
+
+  @media (max-width: 800px) {
+    .row { grid-template-columns: minmax(0, 1fr); }
+    .timeline { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+    .timeline::before { display: none; }
+    .tl-item { padding-top: 0; padding-left: 24px; border-left: 1px solid #FFFFFF; }
+    .tl-item::before { top: 4px; left: -7px; }
+    .design .row > div:first-child { padding-right: 0; }
+  }
+  .footer {
+    background: #0A1F44;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding: 28px 24px;
+    font-size: 1.1rem;
+  }
+  .footer a {
+    color: #FFFFFF;
+    text-decoration: underline;
+  }
+</style>
+<link rel="stylesheet" href="theme.css?v=6">
+<script src="theme.js?v=1"></script>
+</head>
+<body>
+  <nav class="bar"><a class="brand" href="./">Diego Kiyoshi Menendez</a><div class="bar-links"><a href="./">Home</a><a href="rde.html">RDE</a><a href="ucirpl.html" aria-current="page">UCIRPL</a><a href="https://www.linkedin.com/in/diegokmenendez">LinkedIn</a><a class="btn" href="resume.pdf">Resume</a></div></nav>
+
+  <section class="overview">
+    <h2 class="title">UCI Rocket Project Liquids - MOCH4</h2>
+    <p>Role: Propulsion Engineer working on MOCH4: an 8 in diameter methalox rocket with a 1,300 lbf engine</p>
+  </section>
+
+  <section class="hotfires">
+    <div class="hotfires-head">
+      <h2>3 Hotfires</h2>
+      <p class="role-line">Testing role: Bottle operator</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <h3 class="date">March 2025</h3>
+        <div class="video"><video src="hotfire-1.mp4" poster="hotfire-1-poster.jpg" autoplay muted loop preload="auto" playsinline></video></div>
+      </div>
+      <div class="tl-item">
+        <h3 class="date">May 2025</h3>
+        <div class="video"><video src="hotfire-2.mp4" poster="hotfire-2-poster.jpg" autoplay muted loop preload="auto" playsinline></video></div>
+      </div>
+      <div class="tl-item">
+        <h3 class="date">December 2025</h3>
+        <div class="video"><video src="hotfire-3.mp4" poster="hotfire-3-poster.jpg" autoplay muted loop preload="auto" playsinline></video></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="design">
+    <h2>Design Work</h2>
+
+    <div class="row">
+      <div>
+        <h3>Injector Redesign</h3>
+        <p class="detail">After an unsuccessful hotfire caused by feed system and injector issues, I worked to redesign the injector to add additional seals to prevent interpropellant leakage and reconfigure passageways to allow for more distributed injection and prevent faceplate burn through. The new injector was designed, with some parts manufactured in house and others sent out for manufacturing, and was then hotfired. That hotfire ended in failure from an explosion driven by feed line contamination, while the injector itself performed as designed.</p>
+      </div>
+      <div class="media">
+        <img src="injector-square2.jpg" alt="New injector">
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <h3>Tank Insulation</h3>
+        <p class="detail">I designed and fabricated insulation for our cryogenic propellant tanks and overcame three main challenges:</p>
+        <ol class="detail-list">
+          <li><strong>Budget.</strong> I reused existing aerogel, aluminum tape, and rope, and spent only $7 on styrofoam wrap, after ensuring a cryo-compatible design.</li>
+          <li><strong>Containing the aerogel.</strong> Aerogel dust is harmful to breathe, so the insulation had to fully conceal the aerogel and keep the dust out of the lab space.</li>
+          <li><strong>Easy removal.</strong> The insulation had to come off easily with the rocket on the launch rail, after the rocket was hoisted and the tanks were filled.</li>
+        </ol>
+      </div>
+      <div class="media">
+        <img src="tank-insulation.jpg" alt="Tank insulation">
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <h3>Main Valve Actuator Mounts</h3>
+        <p class="detail">Our main valve actuators are external to the rocket to save weight. I created mounts to hold the pneumatic actuators outside the rocket to turn our main valves, and addressed two major challenges:</p>
+        <ol class="detail-list">
+          <li><strong>Unknown valve locations.</strong> The exact location of the valves in the lower section had not been decided at the time of my work, so the design needed 4 degrees of freedom.</li>
+          <li><strong>Zero budget.</strong> I designed the mounts using only existing scrap metal.</li>
+        </ol>
+      </div>
+      <div class="media">
+        <img src="main-valve-mounts.jpg" alt="Main valve mounts">
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <a href="#">Back to top</a>
+    <a href="./">Home</a>
+  </footer>
+</body>
+</html>

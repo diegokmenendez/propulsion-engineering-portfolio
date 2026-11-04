@@ -1,0 +1,384 @@
+/* Visual theme layer. Loaded after each page's own styles, so it overrides them.
+   To turn the whole theme off, remove the theme.css and theme.js lines from a page's <head>. */
+
+:root {
+  --accent: #E3873C;
+  --accent-soft: rgba(227, 135, 60, 0.45);
+  --line: rgba(255, 255, 255, 0.12);
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  /* Side gutter: 40px minimum, and content stops at 1200px wide on big screens */
+  --g: max(40px, calc((100% - 1200px) / 2));
+}
+
+html { scroll-behavior: smooth; }
+body { counter-reset: sec; }
+
+/* ---------- Top bar ---------- */
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  flex-wrap: wrap;
+  padding: 12px var(--g);
+  background: rgba(10, 31, 68, 0.94);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.bar .brand {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+.bar-home { justify-content: flex-end; }
+.bar-home .brand { display: none; }
+.bar-links {
+  display: flex;
+  align-items: center;
+  gap: 8px 22px;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+}
+.bar-links a {
+  color: #FFFFFF;
+  text-decoration: none;
+  opacity: 0.85;
+  transition: color 0.2s, opacity 0.2s, background 0.2s;
+}
+.bar-links a:hover { opacity: 1; color: var(--accent); }
+.bar-links a[aria-current="page"] {
+  opacity: 1;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 2px;
+}
+.bar-links a.btn {
+  opacity: 1;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 6px 14px;
+  border-radius: 6px;
+}
+.bar-links a.btn:hover { background: var(--accent); color: #0A1F44; }
+
+/* ---------- Headings ---------- */
+h2 { font-size: clamp(1.75rem, 3.6vw, 2.75rem); }
+.overview .title { font-size: clamp(1.6rem, 3.4vw, 2.5rem); }
+.section h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+.row h3 { font-size: clamp(1.4rem, 2.6vw, 2rem); }
+
+/* Small numbered label above each section title, and a short accent rule below it */
+.section h2::before,
+.design .row h3::before {
+  counter-increment: sec;
+  content: counter(sec, decimal-leading-zero);
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  color: var(--accent);
+}
+.section h2::after,
+.design .row h3::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 2px;
+  margin-top: 14px;
+  background: var(--accent);
+}
+
+/* ---------- Content width and spacing ---------- */
+.overview { padding-left: var(--g); padding-right: var(--g); }
+.hotfires-head { padding-left: var(--g); padding-right: var(--g); }
+.design > h2 { padding-left: var(--g); padding-right: var(--g); }
+.design .row { padding-left: var(--g); padding-right: var(--g); }
+
+.section {
+  position: relative;
+  padding: 64px var(--g) 8px;
+}
+.overview + .section { padding-top: 48px; }
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--g);
+  right: var(--g);
+  height: 1px;
+  background: var(--line);
+}
+.overview + .section::before { display: none; }
+
+/* ---------- Hotfire timeline ---------- */
+.timeline { padding-left: var(--g); padding-right: var(--g); }
+.timeline::before {
+  left: var(--g);
+  right: var(--g);
+  background: var(--accent-soft);
+}
+.tl-item::before { background: var(--accent); }
+.tl-item .date {
+  font-family: var(--mono);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+}
+.video {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-sizing: border-box;
+}
+
+/* ---------- Images ---------- */
+.media img,
+.media video {
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  box-sizing: border-box;
+}
+.media.card img {
+  background: #FFFFFF;
+  padding: 14px;
+}
+.cap {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+/* ---------- Links ---------- */
+.pubs a {
+  color: var(--accent);
+  text-decoration-color: var(--accent-soft);
+  text-underline-offset: 3px;
+}
+.pubs a:hover { text-decoration-color: var(--accent); }
+.pubs .tag,
+.pubs .venue { font-family: var(--mono); font-size: 0.78em; letter-spacing: 0.02em; }
+.pub-group {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.footer a { transition: color 0.2s; }
+.footer a:hover { color: var(--accent); }
+
+/* ---------- Home: project cards ---------- */
+#rde, #ucirpl { background-image: none; }
+.panel .bg {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+}
+#rde .bg { background-image: url("rde.jpg"); }
+#ucirpl .bg { background-image: url("ucirpl.jpg"); }
+.panel::before { z-index: 1; transition: background 0.3s; }
+.panel span { z-index: 2; }
+.panel::after {
+  content: "";
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: 3;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 0 var(--accent);
+  transition: box-shadow 0.25s;
+}
+.panel:hover { opacity: 1; }
+.panel:hover .bg { transform: scale(1.05); }
+.panel:hover::before { background: rgba(0, 0, 0, 0.32); }
+.panel:hover::after { box-shadow: inset 0 0 0 4px var(--accent); }
+.panel span small {
+  display: block;
+  margin-top: 10px;
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  font-weight: 500;
+}
+.about h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 2px;
+  margin: 14px auto 0;
+  background: var(--accent);
+}
+
+/* ---------- Fade-in on scroll (only active when theme.js runs) ---------- */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+html.js .reveal.in { opacity: 1; transform: none; }
+
+@media (max-width: 800px) {
+  .bar { position: static; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  html.js .reveal { opacity: 1; transform: none; transition: none; }
+  .panel .bg, .panel::before, .panel::after { transition: none; }
+}
+
+/* =====================================================================
+   v2 refinements (appended). Delete everything from this line down to
+   return to the v1 look.
+   ===================================================================== */
+:root { --text: #F2F4F8; --muted: rgba(242, 244, 248, 0.72); }
+html { scroll-padding-top: 72px; }
+body { color: var(--text); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+::selection { background: var(--accent); color: #0A1F44; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
+/* Text contrast and body scale */
+.cap { color: var(--muted); font-size: 0.85rem; }
+.pubs .tag, .pubs .venue { opacity: 1; color: var(--muted); font-size: 0.8rem; }
+.row .sub, .role-line { opacity: 1; color: var(--muted); }
+.section .detail, .row .detail, .row .detail-list, .overview p {
+  font-size: clamp(1rem, 1.3vw, 1.125rem);
+  line-height: 1.65;
+}
+
+/* Bar */
+.bar { padding-top: 10px; padding-bottom: 10px; }
+.bar-links { font-size: 0.9rem; }
+.bar .brand { font-size: 1rem; }
+
+/* Home hero */
+h1 { letter-spacing: -0.02em; line-height: 1.05; padding: clamp(56px, 8vw, 96px) 24px 12px; }
+.tagline {
+  max-width: 90ch;
+  text-wrap: balance;
+  margin: 0 auto;
+  padding: 0 24px clamp(36px, 5vw, 64px);
+  font-size: clamp(0.95rem, 1.4vw, 1.125rem);
+  color: var(--muted);
+  letter-spacing: 0.01em;
+}
+
+/* Home cards */
+.panel { aspect-ratio: 4 / 5; }
+.panel::before {
+  background: linear-gradient(to top, rgba(5, 12, 28, 0.88) 0%, rgba(5, 12, 28, 0.35) 55%, rgba(5, 12, 28, 0.15) 100%);
+}
+.panel:hover::before { background: linear-gradient(to top, rgba(5, 12, 28, 0.8) 0%, rgba(5, 12, 28, 0.22) 55%, rgba(5, 12, 28, 0.08) 100%); }
+.panel span {
+  top: auto;
+  bottom: clamp(24px, 4vw, 48px);
+  transform: none;
+  text-align: left;
+  left: clamp(24px, 4vw, 48px);
+  right: 24px;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.panel span small {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 12px;
+}
+
+/* Section rhythm */
+.section h2::before, .design .row h3::before { font-size: 0.75rem; margin-bottom: 14px; }
+.section { padding-top: clamp(56px, 7vw, 96px); padding-bottom: clamp(24px, 3vw, 40px); }
+.overview + .section { padding-top: clamp(40px, 5vw, 64px); }
+.section h2 { letter-spacing: -0.015em; }
+.section h2::after, .design .row h3::after { margin-top: 16px; margin-bottom: 8px; }
+.section .detail + .detail { margin-top: 16px; }
+
+/* UCIRPL hierarchy */
+.hotfires-head h2, .design > h2 {
+  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.hotfires-head .role-line { font-size: clamp(1rem, 1.6vw, 1.25rem); }
+.design > h2 { padding-top: clamp(32px, 5vw, 56px); }
+.design .row { padding-top: 28px; padding-bottom: 28px; }
+.design .row + .row { border-top: 1px solid var(--line); }
+.design .row + .row { margin-left: var(--g); margin-right: var(--g); padding-left: 0; padding-right: 0; }
+.row h3 { font-weight: 600; }
+
+/* Media framing (no cropping) */
+.media img, .media video, .video { border-radius: 10px; box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6); }
+.media.card img { padding: 18px; }
+
+/* Publications */
+.pub-group { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 0.78rem; letter-spacing: 0.14em; }
+.pubs li { margin-bottom: 24px; padding-left: 14px; border-left: 2px solid var(--accent-soft); transition: border-color 0.2s; }
+.pubs li:hover { border-left-color: var(--accent); }
+.pubs a { font-weight: 500; line-height: 1.35; }
+.pubs .tag { margin-bottom: 4px; }
+.pubs .venue { margin-top: 6px; }
+
+/* Footer */
+.footer { border-top: 1px solid var(--line); padding: 32px var(--g); gap: 28px; font-size: 0.9rem; }
+.footer a { color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; transition: color 0.2s, border-color 0.2s; }
+.footer a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* Mobile */
+@media (max-width: 700px) { .panel { aspect-ratio: 4 / 3; } }
+@media (max-width: 800px) {
+  :root { --g: max(20px, calc((100% - 1200px) / 2)); }
+  .bar { padding: 10px 20px; gap: 8px 16px; }
+  .bar-links, .bar-home .bar-links { width: 100%; justify-content: space-between; font-size: 0.88rem; gap: 6px 12px; }
+  .bar-links a.btn { padding: 5px 12px; }
+  .section, .overview, .hotfires-head, .design > h2, .design .row, .timeline { padding-left: 20px; padding-right: 20px; }
+  .design .row + .row { margin-left: 0; margin-right: 0; padding-left: 20px; padding-right: 20px; }
+  .section::before { left: 20px; right: 20px; }
+  .section h2::after, .design .row h3::after { width: 40px; }
+}
+
+/* Captions hidden for consistency (UCIRPL has none). Delete this rule to show them on the RDE page again. */
+.cap { display: none; }
+
+/* Home: keep project titles visible on first load. Delete this block to undo. */
+h1 { padding-top: clamp(28px, 3.5vw, 48px); }
+.tagline { padding-bottom: clamp(20px, 2.5vw, 32px); }
+.panel { aspect-ratio: auto; height: clamp(420px, calc(100svh - 240px), 760px); }
+@media (max-width: 700px) { .panel { height: auto; aspect-ratio: 4 / 3; } }
+
+/* Home: tall cards, titles float with the scroll then settle at the card bottom.
+   Delete this block (and the "fit the viewport" block above it) to undo. */
+.panel {
+  height: auto;
+  aspect-ratio: 4 / 5;
+  overflow: clip;
+  display: flex;
+  align-items: flex-end;
+}
+.panel span {
+  position: sticky;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: clamp(24px, 4vw, 48px);
+  transform: none;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: clamp(24px, 4vw, 48px);
+  padding: 0 clamp(24px, 4vw, 48px);
+}
+@media (max-width: 700px) { .panel { aspect-ratio: 4 / 3; } }
+.panel span small { text-shadow: 0 1px 10px rgba(0, 0, 0, 0.95), 0 0 3px rgba(0, 0, 0, 0.8); }
+.panel span { text-shadow: 0 2px 16px rgba(0, 0, 0, 0.8); }

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diego Kiyoshi Menendez</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #0A1F44;
+    color: #FFFFFF;
+    font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  h1 {
+    margin: 0;
+    padding: 24px 24px;
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    font-weight: 600;
+    text-align: center;
+  }
+  h1 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .tagline {
+    margin: 0;
+    padding: 0 40px 20px;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+  .about {
+    padding: 48px 40px 64px;
+    max-width: 70ch;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .about h2 {
+    margin: 0 0 16px;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  .about p {
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+  .links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding: 0 24px 32px;
+    font-size: 1.1rem;
+  }
+  .links a {
+    color: #FFFFFF;
+    text-decoration: underline;
+  }
+  .panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .panel {
+    position: relative;
+    display: block;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    color: #FFFFFF;
+    text-decoration: none;
+    background-color: #0A1F44;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 0.2s;
+  }
+  .panel:hover { opacity: 0.8; }
+  .panel::before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: rgba(0, 0, 0, 0.45);
+  }
+  .panel span {
+    z-index: 1;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-size: clamp(1.75rem, 4vw, 3.25rem);
+    font-weight: 600;
+  }
+  .panel span small {
+    display: block;
+    margin-top: 10px;
+    font-size: clamp(1rem, 1.6vw, 1.3rem);
+    font-weight: 500;
+  }
+  /* Placeholder images. To use your own, replace each url(...) with a file path,
+     for example: #rde { background-image: url("images/rde.jpg"); } */
+  #rde {
+    background-image: url("rde.jpg");
+  }
+  #ucirpl {
+    background-image: url("ucirpl.jpg");
+  }
+
+  @media (max-width: 700px) {
+    .panels { grid-template-columns: 1fr; }
+  }
+</style>
+<link rel="stylesheet" href="theme.css?v=6">
+<script src="theme.js?v=1"></script>
+</head>
+<body>
+  <nav class="bar bar-home"><a class="brand" href="./">Diego Kiyoshi Menendez</a><div class="bar-links"><a href="./" aria-current="page">Home</a><a href="rde.html">RDE</a><a href="ucirpl.html">UCIRPL</a><a href="https://www.linkedin.com/in/diegokmenendez">LinkedIn</a><a class="btn" href="resume.pdf">Resume</a></div></nav>
+  <h1><a href="./">Diego Kiyoshi Menendez</a></h1>
+  <p class="tagline">Aerospace Undergrad | Rotating Detonation Engines @ X Energy Lab | UC Irvine '27</p>
+  <div class="panels">
+    <a class="panel" id="rde" href="rde.html"><i class="bg"></i><span>Rotating Detonation Engine<small>X Energy Lab</small></span></a>
+    <a class="panel" id="ucirpl" href="ucirpl.html"><i class="bg"></i><span>MOCH4 Liquid Rocket<small>UCI Rocket Project Liquids</small></span></a>
+  </div>
+  <section class="about">
+    <h2>About Me</h2>
+    <p>My research focuses on rotating detonation engines, cellular detonation physics, and combustor wall materials. I run the experimental RDE project at X Energy Lab, funded through a National Science Foundation grant under the Designing Materials to Revolutionize and Engineer our Future (DMREF) program.</p>
+  </section>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>X Energy Lab - 2 in Rotating Detonation Engine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #1C1C1E;
+    color: #FFFFFF;
+    font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  .top {
+    background: #0A1F44;
+  }
+  h1 {
+    margin: 0;
+    padding: 24px 24px;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  h1 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding: 0 24px 32px;
+    font-size: 1.1rem;
+  }
+  .links a {
+    color: #FFFFFF;
+    text-decoration: underline;
+  }
+  .overview {
+    padding: 32px 40px 8px;
+  }
+  .overview .title {
+    text-align: center;
+    margin: 0 0 12px;
+    padding: 0;
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.1;
+  }
+  .overview p {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 110ch;
+    font-size: clamp(1rem, 1.7vw, 1.25rem);
+    line-height: 1.5;
+  }
+  .section {
+    padding: 48px 40px 0;
+    display: grid;
+    gap: 40px;
+    align-items: center;
+  }
+  /* Image left: text right. Image right: text left. */
+  .s1, .s3, .s5 { grid-template-columns: 38% minmax(0, 1fr); }
+  .s3 { grid-template-columns: 22% minmax(0, 1fr); }
+  .s2, .s4, .s6 { grid-template-columns: minmax(0, 1fr) 38%; }
+  .s1 .media, .s3 .media, .s5 .media { order: -1; }
+  .section h2 {
+    margin: 0;
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.1;
+  }
+  .section .detail {
+    margin: 12px 0 0;
+    max-width: 60ch;
+    font-size: clamp(1rem, 1.7vw, 1.25rem);
+    line-height: 1.5;
+  }
+  .section .detail + .detail { margin-top: 12px; }
+  .media {
+    margin: 0;
+    width: 100%;
+  }
+  .media img,
+  .media video {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #000000;
+  }
+  .ph {
+    aspect-ratio: 4 / 3;
+    background: #566B96;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+  }
+  /* Images alternate between the left edge and the right edge */
+  .pubs {
+    list-style: none;
+    margin: 24px 0 0;
+    padding: 0;
+    max-width: 60ch;
+    font-size: clamp(1rem, 1.7vw, 1.25rem);
+    line-height: 1.5;
+  }
+  .pub-group { margin: 24px 0 0; font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 600; }
+  .pub-group + .pubs { margin-top: 12px; }
+  .pubs li { margin-bottom: 20px; }
+  .pubs .tag { display: block; opacity: 0.7; font-size: 0.85em; }
+  .pubs a { color: #FFFFFF; text-decoration: underline; font-weight: 500; }
+  .pubs .venue { display: block; opacity: 0.8; }
+  .end { height: 64px; }
+
+  @media (max-width: 800px) {
+    .section, .s1, .s2, .s3, .s4, .s5, .s6 { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    .s1 .media, .s3 .media, .s5 .media { order: 0; }
+  }
+  .footer {
+    background: #0A1F44;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding: 28px 24px;
+    font-size: 1.1rem;
+  }
+  .footer a {
+    color: #FFFFFF;
+    text-decoration: underline;
+  }
+</style>
+<link rel="stylesheet" href="theme.css?v=6">
+<script src="theme.js?v=1"></script>
+</head>
+<body>
+  <nav class="bar"><a class="brand" href="./">Diego Kiyoshi Menendez</a><div class="bar-links"><a href="./">Home</a><a href="rde.html" aria-current="page">RDE</a><a href="ucirpl.html">UCIRPL</a><a href="https://www.linkedin.com/in/diegokmenendez">LinkedIn</a><a class="btn" href="resume.pdf">Resume</a></div></nav>
+
+  <section class="overview">
+    <h2 class="title">X Energy Lab - 2 in Rotating Detonation Engine</h2>
+    <p>I designed and built a 2 in rotating detonation engine and took it from an empty room to its first hotfire. I owned the design, fabrication, testing, and integration of every component, from the engine itself to the facility around it. Since first hotfire, I have conducted hundreds more, sustaining detonation for up to 2.2 seconds across a range of operating conditions. These experiments have characterized the response and failure mechanisms of copper, tungsten, and Inconel 625 and supported one presentation and three accepted conference abstracts.</p>
+  </section>
+
+  <section class="section s1">
+    <div class="text">
+    <h2>Initial Design</h2>
+    <p class="detail">In February 2025, I was tasked with adapting an Air Force Research Lab rotating detonation engine design for our lab. I scaled the engine down to a 2 in design, including the injector, manifolding, and feed interfaces, and redesigned the sealing mechanism to suit our facility. I performed calculations to ensure that the engine would still operate with sustained detonation.</p>
+    
+    </div>
+    <div class="media"><img src="rde-initial-design.png" alt="Exploded view of the RDE: ignitor ring, innerbody testing coupon, outerbody, injector rings, manifold"><span class="cap">Exploded view: ignitor ring, innerbody testing coupon, outerbody, injector rings, manifold</span></div>
+  </section>
+
+  <section class="section s2">
+    <div class="text">
+    <h2>Facility Design</h2>
+    <p class="detail">We began with no facility capable of hotfiring an engine. I designed the facility from scratch: the feed system, data acquisition, igniter system, engine control system, and the in-room gas supply, along with every supporting component. I then built each component, tested it, and integrated it into the full system.</p>
+      <p class="detail">This feed system can supply gaseous methane and oxygen at a total mass flow rate of up to 600 g/s at an equivalence ratio of 1.15. The flow duration, mass flow rate, and equivalence ratio are customizable for each hotfire.</p>
+    
+    </div>
+    <div class="media"><img src="rde-facility.jpg" alt="RDE test facility"><span class="cap">RDE test facility</span></div>
+  </section>
+
+  <section class="section s3">
+    <div class="text">
+    <h2>First Hotfire</h2>
+    <p class="detail">It took 10 months from the start of the design in February 2025 to our first hotfire in December 2025. Before firing, I ran a nitrogen flow testing campaign on the engine to validate the feed system and flow behavior. That campaign led to our first hotfire and a successful detonation.</p>
+    
+    </div>
+    <div class="media portrait"><video src="rde-clip-2.mp4" poster="rde-clip-2-poster.jpg" autoplay muted loop preload="auto" playsinline></video></div>
+  </section>
+
+  <section class="section s4">
+    <div class="text">
+    <h2>Collecting Data</h2>
+    <p class="detail">We have since expanded our diagnostics to include laser Doppler vibrometry, high-speed imaging, and chamber pressure measurement. Next, we plan to add direct optical imaging of the detonation through a quartz outer body.</p>
+    
+    </div>
+    <div class="media"><video src="rde-clip-1.mp4" poster="rde-clip-1-poster.jpg" autoplay muted loop preload="auto" playsinline></video></div>
+  </section>
+
+  <section class="section s5">
+    <div class="text">
+    <h2>1D Thermal Modeling</h2>
+    <p class="detail">I created a simplified 1D thermal model to assess how we can expect different materials to fail. This model was then calibrated to real testing data, and it gives an insight into the chamber conditions that we would not otherwise have.</p>
+    
+    </div>
+    <div class="media card"><img src="rde-thermal-model.png" alt="Transient radial temperature profiles for copper, Inconel 625, Ti-6Al-4V, and tungsten"><span class="cap">Transient radial temperature profiles for copper, Inconel 625, Ti-6Al-4V, and tungsten</span></div>
+  </section>
+
+  <section class="section s6">
+    <div class="text">
+    <h2>Presenting Our Work</h2>
+    <p class="detail">The focus of this research has been investigating how materials respond and fail in the extreme thermomechanical loading environment of a rotating detonation engine. The future plan is to design new materials that can withstand that environment.</p>
+    <p class="detail">This work has been presented once, as a first-author oral presentation at IWDP 2026. Three further papers have accepted abstracts for AIAA SciTech Forum 2027: one first-author and two co-authored. Links below.</p>
+    <h3 class="pub-group">Presented</h3>
+      <ul class="pubs">
+        <li><span class="tag">First-author oral presentation</span><a href="pub-iwdp-2026.pdf">Component and material failure mechanisms in miniaturized rotating detonation engines</a><span class="venue">International Workshop on Detonation for Propulsion (IWDP 2026), Yokohama, Japan, May 2026</span></li>
+      </ul>
+      <h3 class="pub-group">Accepted abstracts, AIAA SciTech Forum 2027</h3>
+      <ul class="pubs">
+        <li><span class="tag">First-author paper</span><a href="pub-scitech-2027-mapping.pdf">Mapping Material Responses and Failure Mechanisms for a Heat-Sink Rotating Detonation Engine</a><span class="venue">Abstract accepted</span></li>
+        <li><span class="tag">Co-author paper</span><a href="pub-scitech-2027-microstructure.pdf">Microstructural Influence on Material Degradation in a Rotating Detonation Engine</a><span class="venue">Abstract accepted</span></li>
+        <li><span class="tag">Co-author paper</span><a href="pub-scitech-2027-vibratory.pdf">Experimental Investigation into the Thermomechanical Vibratory Response of Uncooled Rotating Detonation Engine Combustor Liners</a><span class="venue">Abstract accepted</span></li>
+      </ul>
+    
+    </div>
+    <div class="media"><img src="rde-presenting.jpg" alt="Presenting our work"><span class="cap">IWDP 2026, Yokohama, Japan</span></div>
+  </section>
+
+  <div class="end"></div>
+  <footer class="footer">
+    <a href="#">Back to top</a>
+    <a href="./">Home</a>
+  </footer>
+</body>
+</html>
