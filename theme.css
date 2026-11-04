@@ -452,3 +452,10 @@ strong { font-weight: 600; color: #FFFFFF; }
 .stats { justify-content: flex-start; text-align: left; margin-top: clamp(28px, 3.5vw, 40px); gap: 20px clamp(32px, 5vw, 64px); }
 .stats li { text-align: left; }
 .row .detail, .row .detail-list { max-width: 68ch; }
+
+/* Opening re-centered (label, title, narrow intro, numbers all centered). */
+.overview .title { text-align: center; }
+.eyebrow { text-align: center; }
+.overview p { text-align: center; margin: 0 auto; max-width: 68ch; }
+.stats { justify-content: center; text-align: center; }
+.stats li { text-align: center; }
