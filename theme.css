@@ -418,3 +418,20 @@ strong { font-weight: 600; color: #FFFFFF; }
 /* Intro band: slightly lighter background to set the intro apart from the sections below (matches UCIRPL). */
 .overview { background: #26262A; padding-bottom: clamp(32px, 4vw, 48px); }
 .overview + .section { padding-top: clamp(48px, 6vw, 72px); }
+
+/* Stat strips as plain words (no boxes). */
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px clamp(32px, 6vw, 80px);
+  max-width: none;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  text-align: center;
+}
+.stats li, .overview .stats li { background: none; padding: 0; }
+.stats span { margin-top: 6px; }
+@media (max-width: 600px) { .stats li:last-child:nth-child(odd) { grid-column: auto; } }
