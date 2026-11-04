@@ -35,8 +35,9 @@ body { counter-reset: sec; }
   font-weight: 600;
   font-size: 1.05rem;
 }
-.bar-home { justify-content: flex-end; }
-.bar-home .brand { display: none; }
+.bar-home { justify-content: space-between; }
+.bar-home .brand { visibility: hidden; opacity: 0; transition: opacity 0.25s, visibility 0.25s; }
+.bar-home.show-brand .brand { visibility: visible; opacity: 1; }
 .bar-links {
   display: flex;
   align-items: center;
@@ -382,3 +383,5 @@ h1 { padding-top: clamp(28px, 3.5vw, 48px); }
 @media (max-width: 700px) { .panel { aspect-ratio: 4 / 3; } }
 .panel span small { text-shadow: 0 1px 10px rgba(0, 0, 0, 0.95), 0 0 3px rgba(0, 0, 0, 0.8); }
 .panel span { text-shadow: 0 2px 16px rgba(0, 0, 0, 0.8); }
+
+@media (max-width: 800px) { .bar-home .brand { display: none; } }
