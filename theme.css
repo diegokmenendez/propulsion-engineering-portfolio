@@ -435,3 +435,20 @@ strong { font-weight: 600; color: #FFFFFF; }
 .stats li, .overview .stats li { background: none; padding: 0; }
 .stats span { margin-top: 6px; }
 @media (max-width: 600px) { .stats li:last-child:nth-child(odd) { grid-column: auto; } }
+
+/* Composed opening: small label, shorter title, narrow left-aligned intro, left-aligned key numbers. */
+.eyebrow {
+  margin: 0 0 12px;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.overview { padding-top: clamp(40px, 5vw, 64px); }
+.overview .title { text-align: left; margin-bottom: 16px; }
+.overview p { text-align: left; margin: 0; max-width: 68ch; }
+.stats { justify-content: flex-start; text-align: left; margin-top: clamp(28px, 3.5vw, 40px); gap: 20px clamp(32px, 5vw, 64px); }
+.stats li { text-align: left; }
+.row .detail, .row .detail-list { max-width: 68ch; }
